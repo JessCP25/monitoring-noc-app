@@ -1,13 +1,20 @@
 import { CronJob } from "cron";
 import { CronService } from "./cron/cron-service";
+import { CheckService } from "../domain/use-cases/checks/check-service";
+import { error } from "console";
 
 export class Server {
   public static start(){
     console.log('Server started...');
 
     CronService.createJob('*/5 * * * * *', ()=>{
-      const date = new Date();
-      console.log('5 seconds', date)
+      const url = 'https://google.com'
+      new CheckService(
+        ()=> console.log(`${url} is ok`),
+        (error)=> console.log(error)
+      ).execute(url)
+      // new CheckService().execute('https://localhost:3000')
+
     })
   }
 }
