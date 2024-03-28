@@ -16,15 +16,7 @@ export class Server {
 
     // Mandar email
     const emailService = new EmailService();
-    emailService.sendEmail({
-      to: "jpayanoc25@gmail.com",
-      subject: "Logs de sistema",
-      htmlBody: `
-        <h3>Logs de sistema - NOC</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit, congue tincidunt semper feugiat penatibus euismod habitant porttitor, facilisis aenean in fusce quis curae. Nam dapibus montes mus mauris est pretium nisl facilisis proin blandit, libero habitasse viverra conubia non fringilla cursus vivamus diam, pellentesque euismod nulla feugiat habitant netus aptent donec facilisi. Consequat felis fusce congue orci montes lacus non himenaeos bibendum, dictumst dignissim ultricies suscipit tempor mi quam iaculis velit ridiculus, morbi taciti litora per feugiat vehicula suspendisse erat.</p>
-        <p>Ver logs adjuntos</p>
-      `,
-    });
+    emailService.sendEmailWithFileSystemLogs(['jpayanoc25@gmail.com']);
 
     // CronService.createJob('*/5 * * * * *', ()=>{
     //   const url = 'https://localhost:3000'
