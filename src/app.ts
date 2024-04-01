@@ -1,5 +1,6 @@
 import { envs } from "./config/plugins/envs.plugin";
 import { MongoDataBase } from "./data/mongo";
+import { Server } from "./presentation/server";
 
 (()=>{
   main();
@@ -12,5 +13,5 @@ async function main() {
   });
   
   // Crear un colección = tables, documento = registro
-  
+  Server.start();
 }
